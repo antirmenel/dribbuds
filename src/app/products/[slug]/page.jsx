@@ -40,19 +40,21 @@ export default async function ProductPage({ params }) {
 
   if (!product) {
     return (
-      <section className="min-h-screen flex items-center justify-center text-center text-[#252B37]">
-        <p>Product not found.</p>
-        <Link href="/" className="underline ml-4">
-          Back to Home
+      <section className="min-h-screen flex flex-col items-center justify-center text-center text-[#252B37] px-6 sm:px-12">
+        <p className="mb-4 text-lg font-semibold">Product not found.</p>
+        <Link href="/">
+          <a className="underline text-lg hover:text-gray-700">Back to Home</a>
         </Link>
       </section>
     );
   }
 
   return (
-    <section className="bg-gray-100 min-h-screen flex flex-col items-center px-6 sm:px-12 py-16 text-[#252B37]">
-      <Link href="/" className="self-start mb-6 underline hover:no-underline text-lg">
-        &larr; Back to Home
+    <section className="bg-gray-100 min-h-screen flex flex-col items-center px-6 sm:px-12 py-16 text-[#252B37] max-w-5xl mx-auto">
+      <Link href="/">
+        <a className="self-start mb-6 underline hover:no-underline text-lg text-gray-700 hover:text-gray-900 transition">
+          &larr; Back to Home
+        </a>
       </Link>
 
       <ProductDetail product={product} />
