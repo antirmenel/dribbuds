@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Font faces */
+@font-face {
+  font-family: "Monument";
+  src: url("/assets/Fonts/MonumentExtendedRegular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Monument Ultrabold";
+  src: url("/assets/Fonts/MonumentExtendedUltrabold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Tailwind theme variables */
+@theme {
+  --font-monument: "Monument", sans-serif;
+  --font-monument-ultrabold: "Monument Ultrabold", sans-serif;
+}
+
+/* Scrollbar hidden but scroll enabled */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  min-width: 200%;
+  animation: marquee 30s linear infinite;
+}
