@@ -29,21 +29,17 @@ export default function ProductDetail({ product }) {
     ) {
       return false;
     }
-    // Extend validation logic here if necessary
     return true;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!validateForm()) {
       alert("Please fill in all required fields.");
       return;
     }
-
     setIsProcessing(true);
     setSuccessMessage("");
-
     setTimeout(() => {
       setIsProcessing(false);
       setSuccessMessage(`Thank you, ${formData.name}! Your purchase of ${product.name} is confirmed.`);
@@ -108,13 +104,14 @@ export default function ProductDetail({ product }) {
             required
             disabled={isProcessing}
           />
-          <div className="flex space-x-4">
+          {/* Improved expiry + cvc container */}
+          <div className="flex flex-wrap gap-4">
             <input
               type="text"
               name="expiry"
               placeholder="MM/YY"
               maxLength={5}
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 flex-1"
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 flex-grow min-w-[120px]"
               value={formData.expiry}
               onChange={handleChange}
               required
@@ -125,7 +122,7 @@ export default function ProductDetail({ product }) {
               name="cvc"
               placeholder="CVC"
               maxLength={4}
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 w-24"
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 w-24 min-w-[72px]"
               value={formData.cvc}
               onChange={handleChange}
               required
